@@ -1,7 +1,9 @@
 package br.feevale.pokertimer.screen;
 
-public class MainPanel extends javax.swing.JPanel {
-    public MainPanel() {
+import javax.swing.JOptionPane;
+
+public class FirstGrouping extends javax.swing.JPanel {
+    public FirstGrouping() {
         initComponents();
     }
 
@@ -16,29 +18,29 @@ public class MainPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtBuyInValue = new JNumericTextField();
+        txtBuyInChips = new JNumericTextField();
+        txtReBuyValue = new JNumericTextField();
+        txtReBuyChips = new JNumericTextField();
+        txtAddOnValue = new JNumericTextField();
+        txtAddOnChips = new JNumericTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        txt1oPerc = new JNumericTextField();
+        txt2oPerc = new JNumericTextField();
+        txt3oPerc = new JNumericTextField();
+        txt1oValue = new JNumericTextField();
+        txt2oValue = new JNumericTextField();
+        txt3oValue = new JNumericTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        txtPlayers = new JNumericTextField();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -75,11 +77,22 @@ public class MainPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Buy-In");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtBuyInValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtBuyInValue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtBuyInValueActionPerformed(evt);
             }
         });
+
+        txtBuyInChips.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+
+        txtReBuyValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+
+        txtReBuyChips.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+
+        txtAddOnValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+
+        txtAddOnChips.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
 
         jLabel5.setText("Re-Buy");
 
@@ -98,16 +111,16 @@ public class MainPanel extends javax.swing.JPanel {
                 .addGap(58, 58, 58)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAddOnValue)
+                    .addComponent(txtReBuyValue)
+                    .addComponent(txtBuyInValue, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField4)
+                    .addComponent(txtBuyInChips)
+                    .addComponent(txtReBuyChips)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                    .addComponent(jTextField6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtAddOnChips))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,17 +132,17 @@ public class MainPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuyInValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuyInChips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtReBuyValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtReBuyChips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAddOnValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAddOnChips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -143,6 +156,33 @@ public class MainPanel extends javax.swing.JPanel {
         jLabel8.setText("$");
 
         jLabel9.setText("1º lugar");
+
+        txt1oPerc.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txt1oPerc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt1oPercFocusLost(evt);
+            }
+        });
+
+        txt2oPerc.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txt2oPerc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt2oPercFocusLost(evt);
+            }
+        });
+
+        txt3oPerc.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txt3oPerc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt3oPercFocusLost(evt);
+            }
+        });
+
+        txt1oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+
+        txt2oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+
+        txt3oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
 
         jLabel10.setText("2º lugar");
 
@@ -160,15 +200,15 @@ public class MainPanel extends javax.swing.JPanel {
                     .addComponent(jLabel11))
                 .addGap(59, 59, 59)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField7)
-                    .addComponent(jTextField8)
-                    .addComponent(jTextField9)
+                    .addComponent(txt1oPerc)
+                    .addComponent(txt2oPerc)
+                    .addComponent(txt3oPerc)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField10)
-                    .addComponent(jTextField11)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                    .addComponent(txt1oValue)
+                    .addComponent(txt2oValue)
+                    .addComponent(txt3oValue, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -182,17 +222,17 @@ public class MainPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt1oPerc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt1oValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt2oPerc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt2oValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt3oPerc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt3oValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -201,6 +241,13 @@ public class MainPanel extends javax.swing.JPanel {
 
         jLabel12.setText("Players:");
 
+        txtPlayers.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtPlayers.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPlayersFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -208,9 +255,9 @@ public class MainPanel extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(337, 337, 337))
+                .addGap(58, 58, 58)
+                .addComponent(txtPlayers, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +265,7 @@ public class MainPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPlayers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -250,9 +297,63 @@ public class MainPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtBuyInValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuyInValueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtBuyInValueActionPerformed
+
+    private void txt1oPercFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt1oPercFocusLost
+        JNumericTextField txt1oPerc = (JNumericTextField) this.txt1oPerc;
+
+        if ((txt1oPerc.getInt() == 0) || (txt1oPerc.getInt() > 100))
+          {
+           JOptionPane.showMessageDialog(this, "Percentual do 1º lugar deve estar entre 0 e 100.");
+           txt1oPerc.setInt(0);
+           return;
+          }
+
+        this.checkFocus();
+        return;
+    }//GEN-LAST:event_txt1oPercFocusLost
+
+    private void txt2oPercFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt2oPercFocusLost
+        JNumericTextField txt2oPerc = (JNumericTextField) this.txt2oPerc;
+
+        if ((txt2oPerc.getInt() == 0) || (txt2oPerc.getInt() > 100))
+          {
+           JOptionPane.showMessageDialog(this, "Percentual do 2º lugar deve estar entre 0 e 100.");
+           txt2oPerc.setInt(0);
+           return;
+          }
+
+        this.checkFocus();
+        return;
+    }//GEN-LAST:event_txt2oPercFocusLost
+
+    private void txt3oPercFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt3oPercFocusLost
+        JNumericTextField txt3oPerc = (JNumericTextField) this.txt3oPerc;
+
+        if ((txt3oPerc.getInt() == 0) || (txt3oPerc.getInt() > 100))
+          {
+           JOptionPane.showMessageDialog(this, "Percentual do 3º lugar deve estar entre 0 e 100.");
+           txt3oPerc.setInt(0);
+           return;
+          }
+
+        this.checkFocus();
+        return;
+    }//GEN-LAST:event_txt3oPercFocusLost
+
+    private void txtPlayersFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPlayersFocusLost
+        JNumericTextField txtPlayers = (JNumericTextField) this.txtPlayers;
+
+        if ((txtPlayers.getInt() < 3) || (txtPlayers.getInt() > 10))
+          {
+           JOptionPane.showMessageDialog(this, "'Players' deve ter um valor entre 3 e 10.");
+           txtPlayers.setInt(0);
+          }
+
+        return;
+    }//GEN-LAST:event_txtPlayersFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -272,19 +373,36 @@ public class MainPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txt1oPerc;
+    private javax.swing.JTextField txt1oValue;
+    private javax.swing.JTextField txt2oPerc;
+    private javax.swing.JTextField txt2oValue;
+    private javax.swing.JTextField txt3oPerc;
+    private javax.swing.JTextField txt3oValue;
+    private javax.swing.JTextField txtAddOnChips;
+    private javax.swing.JTextField txtAddOnValue;
+    private javax.swing.JTextField txtBuyInChips;
+    private javax.swing.JTextField txtBuyInValue;
+    private javax.swing.JTextField txtPlayers;
+    private javax.swing.JTextField txtReBuyChips;
+    private javax.swing.JTextField txtReBuyValue;
     private javax.swing.JTextField txtTournamentName;
     // End of variables declaration//GEN-END:variables
+
+    private void checkFocus() {
+        JNumericTextField txt1oPerc = (JNumericTextField) this.txt1oPerc;
+        JNumericTextField txt2oPerc = (JNumericTextField) this.txt2oPerc;
+        JNumericTextField txt3oPerc = (JNumericTextField) this.txt3oPerc;
+
+        if ((txt1oPerc.getInt() + txt2oPerc.getInt() + txt3oPerc.getInt() > 100))
+          {
+           JOptionPane.showMessageDialog(this, "A soma dos percentuais dos 3 lugares deve estar entre 0 e 100.");
+           txt1oPerc.setInt(0);
+           txt2oPerc.setInt(0);
+           txt3oPerc.setInt(0);
+           return;
+          }
+
+        return;
+    }
 }

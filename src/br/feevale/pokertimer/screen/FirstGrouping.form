@@ -111,18 +111,18 @@
                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel2" max="32767" attributes="0"/>
-                      <Component id="jTextField5" max="32767" attributes="0"/>
-                      <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField1" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="txtAddOnValue" max="32767" attributes="0"/>
+                      <Component id="txtReBuyValue" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtBuyInValue" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtBuyInChips" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtReBuyChips" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel3" alignment="0" pref="75" max="32767" attributes="0"/>
-                      <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtAddOnChips" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="225" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -137,19 +137,19 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtBuyInValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtBuyInChips" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtReBuyValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtReBuyChips" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAddOnValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAddOnChips" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -175,20 +175,56 @@
             <Property name="text" type="java.lang.String" value="Buy-In"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txtBuyInValue">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuyInValueActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="txtBuyInChips">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="txtReBuyValue">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="txtReBuyChips">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="txtAddOnValue">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="txtAddOnChips">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -223,16 +259,16 @@
                   </Group>
                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jTextField7" max="32767" attributes="0"/>
-                      <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField9" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txt1oPerc" max="32767" attributes="0"/>
+                      <Component id="txt2oPerc" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txt3oPerc" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel7" alignment="0" pref="75" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jTextField10" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField11" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField12" alignment="0" pref="75" max="32767" attributes="0"/>
+                      <Component id="txt1oValue" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txt2oValue" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txt3oValue" alignment="0" pref="75" max="32767" attributes="0"/>
                       <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -250,19 +286,19 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt1oPerc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt1oValue" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt2oPerc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt2oValue" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt3oPerc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt3oValue" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -288,17 +324,62 @@
             <Property name="text" type="java.lang.String" value="1&#xba; lugar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField7">
+        <Component class="javax.swing.JTextField" name="txt1oPerc">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt1oPercFocusLost"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField8">
+        <Component class="javax.swing.JTextField" name="txt2oPerc">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt2oPercFocusLost"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField9">
+        <Component class="javax.swing.JTextField" name="txt3oPerc">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt3oPercFocusLost"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField10">
+        <Component class="javax.swing.JTextField" name="txt1oValue">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField11">
+        <Component class="javax.swing.JTextField" name="txt2oValue">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField12">
+        <Component class="javax.swing.JTextField" name="txt3oValue">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
@@ -327,9 +408,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="59" max="32767" attributes="0"/>
-                  <Component id="jTextField13" min="-2" pref="75" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="txtPlayers" min="-2" pref="75" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -339,7 +420,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPlayers" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -352,7 +433,16 @@
             <Property name="text" type="java.lang.String" value="Players:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField13">
+        <Component class="javax.swing.JTextField" name="txtPlayers">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPlayersFocusLost"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JNumericTextField()"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
