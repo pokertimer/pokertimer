@@ -4,10 +4,11 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class MainScreen extends JFrame {
 
@@ -23,8 +24,17 @@ public class MainScreen extends JFrame {
         super.setBounds((screenSize.width - w) / 2, (screenSize.height - h) / 2, w, h);
         // -->
 
-        this.tabsPane.addTab("Agrupamento 1", new FirstGrouping());
+        this.tabsPane.addTab("Configuração", FirstGrouping.getInstance());
+        this.tabsPane.addTab("Estrutura de blinds", SecondGrouping.getInstance());
+        this.tabsPane.addTab("Timer", ThirdGrouping.getInstance());
 
+        tabsPane.addChangeListener((ChangeEvent e) -> {
+            if (tabsPane.getSelectedIndex() == 2) // Timer tab
+                {
+                 ThirdGrouping.getInstance().initData();
+                }
+        });
+     
         return;
     }
 
@@ -35,7 +45,7 @@ public class MainScreen extends JFrame {
         tabsPane = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("PokerTimer");
+        setTitle("PokerTimer v1.1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

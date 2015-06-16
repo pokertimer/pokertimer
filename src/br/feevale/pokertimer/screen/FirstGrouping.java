@@ -1,9 +1,15 @@
 package br.feevale.pokertimer.screen;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
-public class FirstGrouping extends javax.swing.JPanel {
-    public FirstGrouping() {
+public class FirstGrouping extends JPanel {
+    private static final FirstGrouping instance = new FirstGrouping();
+
+    public static FirstGrouping getInstance()
+      { return (instance); }
+
+    private FirstGrouping() {
         initComponents();
     }
 
@@ -26,15 +32,16 @@ public class FirstGrouping extends javax.swing.JPanel {
         txtAddOnChips = new JNumericTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txt1oPerc = new JNumericTextField();
-        txt2oPerc = new JNumericTextField();
-        txt3oPerc = new JNumericTextField();
         txt1oValue = new JNumericTextField();
+        txt2oPerc = new JNumericTextField();
         txt2oValue = new JNumericTextField();
+        txt3oPerc = new JNumericTextField();
         txt3oValue = new JNumericTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -45,6 +52,18 @@ public class FirstGrouping extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setText("Nome do Torneio:");
+
+        txtTournamentName.setText("Novo Torneio");
+        txtTournamentName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTournamentNameFocusLost(evt);
+            }
+        });
+        txtTournamentName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTournamentNameKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,6 +97,12 @@ public class FirstGrouping extends javax.swing.JPanel {
         jLabel4.setText("Buy-In");
 
         txtBuyInValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtBuyInValue.setText("0");
+        txtBuyInValue.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBuyInValueFocusLost(evt);
+            }
+        });
         txtBuyInValue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuyInValueActionPerformed(evt);
@@ -85,18 +110,55 @@ public class FirstGrouping extends javax.swing.JPanel {
         });
 
         txtBuyInChips.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtBuyInChips.setText("0");
+        txtBuyInChips.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBuyInChipsFocusLost(evt);
+            }
+        });
 
         txtReBuyValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtReBuyValue.setText("0");
+        txtReBuyValue.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtReBuyValueFocusLost(evt);
+            }
+        });
 
         txtReBuyChips.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtReBuyChips.setText("0");
+        txtReBuyChips.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtReBuyChipsFocusLost(evt);
+            }
+        });
 
         txtAddOnValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtAddOnValue.setText("0");
+        txtAddOnValue.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtAddOnValueFocusLost(evt);
+            }
+        });
 
         txtAddOnChips.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtAddOnChips.setText("0");
+        txtAddOnChips.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtAddOnChipsFocusLost(evt);
+            }
+        });
 
         jLabel5.setText("Re-Buy");
 
         jLabel6.setText("Add-On");
+
+        jButton1.setText("Validar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -120,7 +182,9 @@ public class FirstGrouping extends javax.swing.JPanel {
                     .addComponent(txtReBuyChips)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                     .addComponent(txtAddOnChips))
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +207,8 @@ public class FirstGrouping extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAddOnValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAddOnChips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -158,31 +223,52 @@ public class FirstGrouping extends javax.swing.JPanel {
         jLabel9.setText("1º lugar");
 
         txt1oPerc.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txt1oPerc.setText("50");
         txt1oPerc.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt1oPercFocusLost(evt);
             }
         });
 
+        txt1oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txt1oValue.setText("0");
+        txt1oValue.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt1oValueFocusLost(evt);
+            }
+        });
+
         txt2oPerc.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txt2oPerc.setText("30");
         txt2oPerc.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt2oPercFocusLost(evt);
             }
         });
 
+        txt2oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txt2oValue.setText("0");
+        txt2oValue.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt2oValueFocusLost(evt);
+            }
+        });
+
         txt3oPerc.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txt3oPerc.setText("20");
         txt3oPerc.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt3oPercFocusLost(evt);
             }
         });
 
-        txt1oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-
-        txt2oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-
         txt3oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txt3oValue.setText("0");
+        txt3oValue.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt3oValueFocusLost(evt);
+            }
+        });
 
         jLabel10.setText("2º lugar");
 
@@ -242,6 +328,7 @@ public class FirstGrouping extends javax.swing.JPanel {
         jLabel12.setText("Players:");
 
         txtPlayers.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtPlayers.setText("0");
         txtPlayers.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtPlayersFocusLost(evt);
@@ -304,6 +391,8 @@ public class FirstGrouping extends javax.swing.JPanel {
     private void txt1oPercFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt1oPercFocusLost
         JNumericTextField txt1oPerc = (JNumericTextField) this.txt1oPerc;
 
+        txt1oPerc.setText(String.valueOf(txt1oPerc.getInt()));
+
         if ((txt1oPerc.getInt() == 0) || (txt1oPerc.getInt() > 100))
           {
            JOptionPane.showMessageDialog(this, "Percentual do 1º lugar deve estar entre 0 e 100.");
@@ -318,6 +407,8 @@ public class FirstGrouping extends javax.swing.JPanel {
     private void txt2oPercFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt2oPercFocusLost
         JNumericTextField txt2oPerc = (JNumericTextField) this.txt2oPerc;
 
+        txt2oPerc.setText(String.valueOf(txt2oPerc.getInt()));
+
         if ((txt2oPerc.getInt() == 0) || (txt2oPerc.getInt() > 100))
           {
            JOptionPane.showMessageDialog(this, "Percentual do 2º lugar deve estar entre 0 e 100.");
@@ -331,6 +422,8 @@ public class FirstGrouping extends javax.swing.JPanel {
 
     private void txt3oPercFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt3oPercFocusLost
         JNumericTextField txt3oPerc = (JNumericTextField) this.txt3oPerc;
+
+        txt3oPerc.setText(String.valueOf(txt3oPerc.getInt()));
 
         if ((txt3oPerc.getInt() == 0) || (txt3oPerc.getInt() > 100))
           {
@@ -355,8 +448,73 @@ public class FirstGrouping extends javax.swing.JPanel {
         return;
     }//GEN-LAST:event_txtPlayersFocusLost
 
+    private void txtTournamentNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTournamentNameKeyTyped
+     if (this.txtTournamentName.getText().length() >= 200)
+       { evt.consume(); }
+
+     return;
+    }//GEN-LAST:event_txtTournamentNameKeyTyped
+
+    private void txtTournamentNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTournamentNameFocusLost
+        if (this.txtTournamentName.getText().length() > 200)
+          { this.txtTournamentName.setText(this.txtTournamentName.getText().substring(0, 199)); }
+
+        return;
+    }//GEN-LAST:event_txtTournamentNameFocusLost
+
+    private void txtBuyInValueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuyInValueFocusLost
+        this.txtBuyInValue.setText(String.valueOf(((JNumericTextField) this.txtBuyInValue).getInt()));
+        return;
+    }//GEN-LAST:event_txtBuyInValueFocusLost
+
+    private void txtReBuyValueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtReBuyValueFocusLost
+        this.txtReBuyValue.setText(String.valueOf(((JNumericTextField) this.txtReBuyValue).getInt()));
+        return;
+    }//GEN-LAST:event_txtReBuyValueFocusLost
+
+    private void txtAddOnValueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddOnValueFocusLost
+        this.txtAddOnValue.setText(String.valueOf(((JNumericTextField) this.txtAddOnValue).getInt()));
+        return;
+    }//GEN-LAST:event_txtAddOnValueFocusLost
+
+    private void txtBuyInChipsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuyInChipsFocusLost
+        this.txtBuyInChips.setText(String.valueOf(((JNumericTextField) this.txtBuyInChips).getInt()));
+        return;
+    }//GEN-LAST:event_txtBuyInChipsFocusLost
+
+    private void txtReBuyChipsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtReBuyChipsFocusLost
+        this.txtReBuyChips.setText(String.valueOf(((JNumericTextField) this.txtReBuyChips).getInt()));
+        return;
+    }//GEN-LAST:event_txtReBuyChipsFocusLost
+
+    private void txtAddOnChipsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddOnChipsFocusLost
+        this.txtAddOnChips.setText(String.valueOf(((JNumericTextField) this.txtAddOnChips).getInt()));
+        return;
+    }//GEN-LAST:event_txtAddOnChipsFocusLost
+
+    private void txt1oValueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt1oValueFocusLost
+        this.txt1oValue.setText(String.valueOf(((JNumericTextField) this.txt1oValue).getInt()));
+        return;
+    }//GEN-LAST:event_txt1oValueFocusLost
+
+    private void txt2oValueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt2oValueFocusLost
+        this.txt2oValue.setText(String.valueOf(((JNumericTextField) this.txt2oValue).getInt()));
+        return;
+    }//GEN-LAST:event_txt2oValueFocusLost
+
+    private void txt3oValueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt3oValueFocusLost
+        this.txt3oValue.setText(String.valueOf(((JNumericTextField) this.txt3oValue).getInt()));
+        return;
+    }//GEN-LAST:event_txt3oValueFocusLost
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (this.validateFirstGrouping())
+          { JOptionPane.showMessageDialog(this, "Todos os campos têm valores válidos."); }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -404,5 +562,54 @@ public class FirstGrouping extends javax.swing.JPanel {
           }
 
         return;
+    }
+
+    private boolean validateFirstGrouping() {
+        JNumericTextField txtBuyInValue = (JNumericTextField) this.txtBuyInValue;
+        JNumericTextField txtBuyInChips = (JNumericTextField) this.txtBuyInChips;
+        JNumericTextField txtReBuyChips = (JNumericTextField) this.txtReBuyChips;
+        JNumericTextField txtReBuyValue = (JNumericTextField) this.txtReBuyValue;
+        JNumericTextField txtAddOnChips = (JNumericTextField) this.txtAddOnChips;
+        JNumericTextField txtAddOnValue = (JNumericTextField) this.txtAddOnValue;
+
+        boolean valid = true;
+
+        if (txtBuyInValue.getInt() == 0)
+          {
+           JOptionPane.showMessageDialog(this, "É obrigatório informar o valor de Buy-In.");
+           valid = false;
+          }
+
+        if (txtBuyInChips.getInt() == 0)
+          {
+           JOptionPane.showMessageDialog(this, "É obrigatório informar as fichas de Buy-In.");
+           valid = false;
+          }
+
+        if (txtReBuyValue.getInt() == 0)
+          {
+           JOptionPane.showMessageDialog(this, "É obrigatório informar o valor de Re-Buy.");
+           valid = false;
+          }
+
+        if (txtReBuyChips.getInt() == 0)
+          {
+           JOptionPane.showMessageDialog(this, "É obrigatório informar as fichas de Re-Buy.");
+           valid = false;
+          }
+
+        if (txtAddOnValue.getInt() == 0)
+          {
+           JOptionPane.showMessageDialog(this, "É obrigatório informar o valor de Add-On.");
+           valid = false;
+          }
+        
+        if (txtAddOnChips.getInt() == 0)
+          {
+           JOptionPane.showMessageDialog(this, "É obrigatório informar as fichas de Add-On.");
+           valid = false;
+          }
+
+        return (valid);
     }
 }
