@@ -2,17 +2,14 @@ package br.feevale.pokertimer.screen;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class MainScreen extends JFrame {
+    private static final MainScreen instance = new MainScreen();
 
-    public MainScreen() {
+    private MainScreen() {
         initComponents();
 
         // screen size and position
@@ -27,16 +24,25 @@ public class MainScreen extends JFrame {
         this.tabsPane.addTab("Configuração", FirstGrouping.getInstance());
         this.tabsPane.addTab("Estrutura de blinds", SecondGrouping.getInstance());
         this.tabsPane.addTab("Timer", ThirdGrouping.getInstance());
+        this.tabsPane.addTab("Resultado", FourthGrouping.getInstance());
+
+        this.tabsPane.setEnabledAt(3, false);
 
         tabsPane.addChangeListener((ChangeEvent e) -> {
             if (tabsPane.getSelectedIndex() == 2) // Timer tab
                 {
-                 ThirdGrouping.getInstance().initData();
+                 ThirdGrouping.getInstance().updateData();
                 }
         });
      
         return;
     }
+
+    public static MainScreen getInstance()
+      { return (instance); }
+
+    public JTabbedPane getTabbedPane()
+      { return (this.tabsPane); }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -45,7 +51,7 @@ public class MainScreen extends JFrame {
         tabsPane = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("PokerTimer v1.1");
+        setTitle("PokerTimer v1.2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,36 +66,12 @@ public class MainScreen extends JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabsPane, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                .addComponent(tabsPane, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public static void main(String args[]) {
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane tabsPane;

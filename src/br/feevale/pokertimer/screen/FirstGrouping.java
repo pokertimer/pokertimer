@@ -32,7 +32,6 @@ public class FirstGrouping extends JPanel {
         txtAddOnChips = new JNumericTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -153,13 +152,6 @@ public class FirstGrouping extends JPanel {
 
         jLabel6.setText("Add-On");
 
-        jButton1.setText("Validar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -182,9 +174,7 @@ public class FirstGrouping extends JPanel {
                     .addComponent(txtReBuyChips)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                     .addComponent(txtAddOnChips))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,9 +197,8 @@ public class FirstGrouping extends JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAddOnValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAddOnChips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel6))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -507,14 +496,8 @@ public class FirstGrouping extends JPanel {
         return;
     }//GEN-LAST:event_txt3oValueFocusLost
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (this.validateFirstGrouping())
-          { JOptionPane.showMessageDialog(this, "Todos os campos têm valores válidos."); }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -531,19 +514,19 @@ public class FirstGrouping extends JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField txt1oPerc;
-    private javax.swing.JTextField txt1oValue;
-    private javax.swing.JTextField txt2oPerc;
-    private javax.swing.JTextField txt2oValue;
-    private javax.swing.JTextField txt3oPerc;
-    private javax.swing.JTextField txt3oValue;
-    private javax.swing.JTextField txtAddOnChips;
-    private javax.swing.JTextField txtAddOnValue;
-    private javax.swing.JTextField txtBuyInChips;
-    private javax.swing.JTextField txtBuyInValue;
-    private javax.swing.JTextField txtPlayers;
-    private javax.swing.JTextField txtReBuyChips;
-    private javax.swing.JTextField txtReBuyValue;
+    protected javax.swing.JTextField txt1oPerc;
+    protected javax.swing.JTextField txt1oValue;
+    protected javax.swing.JTextField txt2oPerc;
+    protected javax.swing.JTextField txt2oValue;
+    protected javax.swing.JTextField txt3oPerc;
+    protected javax.swing.JTextField txt3oValue;
+    protected javax.swing.JTextField txtAddOnChips;
+    protected javax.swing.JTextField txtAddOnValue;
+    protected javax.swing.JTextField txtBuyInChips;
+    protected javax.swing.JTextField txtBuyInValue;
+    protected javax.swing.JTextField txtPlayers;
+    protected javax.swing.JTextField txtReBuyChips;
+    protected javax.swing.JTextField txtReBuyValue;
     private javax.swing.JTextField txtTournamentName;
     // End of variables declaration//GEN-END:variables
 
@@ -564,7 +547,7 @@ public class FirstGrouping extends JPanel {
         return;
     }
 
-    private boolean validateFirstGrouping() {
+    protected boolean validateFirstGrouping() {
         JNumericTextField txtBuyInValue = (JNumericTextField) this.txtBuyInValue;
         JNumericTextField txtBuyInChips = (JNumericTextField) this.txtBuyInChips;
         JNumericTextField txtReBuyChips = (JNumericTextField) this.txtReBuyChips;

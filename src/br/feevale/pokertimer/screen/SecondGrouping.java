@@ -1,13 +1,17 @@
 package br.feevale.pokertimer.screen;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultCellEditor;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 public class SecondGrouping extends JPanel {
     private static final SecondGrouping instance = new SecondGrouping();
@@ -28,7 +32,19 @@ public class SecondGrouping extends JPanel {
         this.tblBlinds.setRowSelectionAllowed(true);
         this.tblBlinds.setColumnSelectionAllowed(false);
         this.tblBlinds.setCellSelectionEnabled(true);
-        
+
+        this.tblBlinds.addKeyListener(new KeyAdapter() {         
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    char key = e.getKeyChar();
+
+                    if ((key < '0') || (key > '9'))
+                      { e.consume(); }
+
+                    return;
+                }
+           });
+
         this.tblBlinds.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e)
@@ -38,7 +54,17 @@ public class SecondGrouping extends JPanel {
                  if ((row > -1))
                    {
                     tblBlinds.setRowSelectionInterval(row, row);
-                    tblBlinds.addColumnSelectionInterval(0, tblBlinds.getColumnCount() - 1);
+                   }
+                }
+
+            @Override
+            public void mouseReleased(MouseEvent e)
+                {
+                 int row = tblBlinds.getSelectedRow();
+
+                 if ((row > -1))
+                   {
+                    tblBlinds.setRowSelectionInterval(row, row);
                    }
                 }
         });
@@ -54,7 +80,7 @@ public class SecondGrouping extends JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBlinds = new javax.swing.JTable();
         btnReplicateLevel = new javax.swing.JButton();
-        btnValidateBlindsTable = new javax.swing.JButton();
+        btnRemoveLevel = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -84,7 +110,7 @@ public class SecondGrouping extends JPanel {
         tblBlinds.setColumnSelectionAllowed(true);
         tblBlinds.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblBlinds);
-        tblBlinds.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tblBlinds.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         btnReplicateLevel.setText("Replicar Level");
         btnReplicateLevel.addActionListener(new java.awt.event.ActionListener() {
@@ -93,10 +119,10 @@ public class SecondGrouping extends JPanel {
             }
         });
 
-        btnValidateBlindsTable.setText("Validar tabela");
-        btnValidateBlindsTable.addActionListener(new java.awt.event.ActionListener() {
+        btnRemoveLevel.setText("Excluir Level");
+        btnRemoveLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnValidateBlindsTableActionPerformed(evt);
+                btnRemoveLevelActionPerformed(evt);
             }
         });
 
@@ -110,9 +136,9 @@ public class SecondGrouping extends JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnValidateBlindsTable)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnReplicateLevel)))
+                        .addComponent(btnReplicateLevel)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRemoveLevel)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,7 +149,7 @@ public class SecondGrouping extends JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReplicateLevel)
-                    .addComponent(btnValidateBlindsTable))
+                    .addComponent(btnRemoveLevel))
                 .addContainerGap())
         );
 
@@ -164,29 +190,27 @@ public class SecondGrouping extends JPanel {
           this.blindsTableData.add(row);
           
           this.setTableData();
+
+          return;
     }//GEN-LAST:event_btnReplicateLevelActionPerformed
 
-    private void btnValidateBlindsTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidateBlindsTableActionPerformed
-        for (Object[] row : this.blindsTableData)
+    private void btnRemoveLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveLevelActionPerformed
+        if (tblBlinds.getSelectedRow() == -1)
           {
-           for (int i = 1; i < row.length; i++) 
-             {
-              if ((Integer) row[i] == 0)
-                {
-                 JOptionPane.showMessageDialog(this, "Tabela está incompleta.");
-                 return; 
-                }
-             }
+           JOptionPane.showMessageDialog(this, "Selecione um Level na tabela.");
+           return; 
           }
 
-        JOptionPane.showMessageDialog(this, "Tabela está completa.");
+          this.blindsTableData.remove(tblBlinds.getSelectedRow());
 
-        return;
-    }//GEN-LAST:event_btnValidateBlindsTableActionPerformed
+          this.setTableData();
+
+          return;
+    }//GEN-LAST:event_btnRemoveLevelActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRemoveLevel;
     private javax.swing.JButton btnReplicateLevel;
-    private javax.swing.JButton btnValidateBlindsTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblBlinds;
@@ -194,19 +218,14 @@ public class SecondGrouping extends JPanel {
 
     private void initTableData()
       {
-       for (int i = 1; i <= 6; i++) 
-         {
-          Object[] row = new Object[6];
+       this.blindsTableData.add(new Object[] { "Level 1",  50,  100, 0, 15,  0 });
+       this.blindsTableData.add(new Object[] { "Level 2", 100,  200, 0, 15,  0 });
+       this.blindsTableData.add(new Object[] { "Level 3", 150,  300, 0, 15,  0 });
+       this.blindsTableData.add(new Object[] { "Level 4", 200,  400, 0, 15,  0 });
+       this.blindsTableData.add(new Object[] { "Level 5", 300,  600, 0, 15,  0 });
+       this.blindsTableData.add(new Object[] { "Level 6", 500, 1000, 0, 15, 45 });
 
-          row[0] = "Level " + ++this.levels;
-          row[1] = 0;
-          row[2] = 0;
-          row[3] = 0;
-          row[4] = 0;
-          row[5] = 0;
-
-          this.blindsTableData.add(row);
-         }
+       this.levels = 6;
 
        this.setTableData();
 
@@ -239,12 +258,18 @@ public class SecondGrouping extends JPanel {
 
         this.tblBlinds.setModel(model);
 
+        TableColumn columnModel = this.tblBlinds.getColumnModel().getColumn(1);
+        columnModel.setCellEditor(new DefaultCellEditor(new JNumericTextField()));
+
         model.addTableModelListener((TableModelEvent e) -> {
-            blindsTableData.get(e.getFirstRow())[e.getColumn()] = (Integer) tblBlinds.getValueAt(e.getFirstRow(), e.getColumn());
+            if (tblBlinds.getValueAt(e.getFirstRow(), e.getColumn()).equals(""))
+              { tblBlinds.setValueAt(0, e.getFirstRow(), e.getColumn()); }
+
+            blindsTableData.get(e.getFirstRow())[e.getColumn()] = Integer.parseInt(tblBlinds.getValueAt(e.getFirstRow(), e.getColumn()).toString());
 
             if (e.getColumn() == 1)
             {
-                blindsTableData.get(e.getFirstRow())[2] = 2 * (Integer) tblBlinds.getValueAt(e.getFirstRow(), 1);
+                blindsTableData.get(e.getFirstRow())[2] = 2 * Integer.parseInt(tblBlinds.getValueAt(e.getFirstRow(), 1).toString());
                 setTableData();
             }
         });
