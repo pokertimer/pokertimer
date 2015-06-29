@@ -34,16 +34,14 @@ public class FirstGrouping extends JPanel {
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txt1oPerc = new JNumericTextField();
-        txt1oValue = new JNumericTextField();
         txt2oPerc = new JNumericTextField();
-        txt2oValue = new JNumericTextField();
         txt3oPerc = new JNumericTextField();
-        txt3oValue = new JNumericTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        txtValorInicial = new JNumericTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         txtPlayers = new JNumericTextField();
@@ -206,9 +204,6 @@ public class FirstGrouping extends JPanel {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("%");
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("$");
-
         jLabel9.setText("1º lugar");
 
         txt1oPerc.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
@@ -216,14 +211,6 @@ public class FirstGrouping extends JPanel {
         txt1oPerc.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt1oPercFocusLost(evt);
-            }
-        });
-
-        txt1oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-        txt1oValue.setText("0");
-        txt1oValue.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt1oValueFocusLost(evt);
             }
         });
 
@@ -235,14 +222,6 @@ public class FirstGrouping extends JPanel {
             }
         });
 
-        txt2oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-        txt2oValue.setText("0");
-        txt2oValue.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt2oValueFocusLost(evt);
-            }
-        });
-
         txt3oPerc.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         txt3oPerc.setText("20");
         txt3oPerc.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -251,17 +230,19 @@ public class FirstGrouping extends JPanel {
             }
         });
 
-        txt3oValue.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-        txt3oValue.setText("0");
-        txt3oValue.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt3oValueFocusLost(evt);
-            }
-        });
-
         jLabel10.setText("2º lugar");
 
         jLabel11.setText("3º lugar");
+
+        jLabel13.setText("Valor inicial");
+
+        txtValorInicial.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        txtValorInicial.setText("0");
+        txtValorInicial.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorInicialFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -279,12 +260,13 @@ public class FirstGrouping extends JPanel {
                     .addComponent(txt2oPerc)
                     .addComponent(txt3oPerc)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
-                .addGap(44, 44, 44)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt1oValue)
-                    .addComponent(txt2oValue)
-                    .addComponent(txt3oValue, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(txtValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -293,21 +275,19 @@ public class FirstGrouping extends JPanel {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txt1oPerc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt1oValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt2oPerc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt2oValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt3oPerc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt3oValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -428,9 +408,11 @@ public class FirstGrouping extends JPanel {
     private void txtPlayersFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPlayersFocusLost
         JNumericTextField txtPlayers = (JNumericTextField) this.txtPlayers;
 
-        if ((txtPlayers.getInt() < 3) || (txtPlayers.getInt() > 10))
+        txtPlayers.setInt(txtPlayers.getInt());
+
+        if (txtPlayers.getInt() < 3)
           {
-           JOptionPane.showMessageDialog(this, "'Players' deve ter um valor entre 3 e 10.");
+           JOptionPane.showMessageDialog(this, "'Players' deve ter um valor de no mínimo 3.");
            txtPlayers.setInt(0);
           }
 
@@ -481,20 +463,11 @@ public class FirstGrouping extends JPanel {
         return;
     }//GEN-LAST:event_txtAddOnChipsFocusLost
 
-    private void txt1oValueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt1oValueFocusLost
-        this.txt1oValue.setText(String.valueOf(((JNumericTextField) this.txt1oValue).getInt()));
-        return;
-    }//GEN-LAST:event_txt1oValueFocusLost
+    private void txtValorInicialFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorInicialFocusLost
+        JNumericTextField txtValorInicial = (JNumericTextField) this.txtValorInicial;
 
-    private void txt2oValueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt2oValueFocusLost
-        this.txt2oValue.setText(String.valueOf(((JNumericTextField) this.txt2oValue).getInt()));
-        return;
-    }//GEN-LAST:event_txt2oValueFocusLost
-
-    private void txt3oValueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt3oValueFocusLost
-        this.txt3oValue.setText(String.valueOf(((JNumericTextField) this.txt3oValue).getInt()));
-        return;
-    }//GEN-LAST:event_txt3oValueFocusLost
+        txtValorInicial.setText(String.valueOf(txtValorInicial.getInt()));
+    }//GEN-LAST:event_txtValorInicialFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -502,24 +475,21 @@ public class FirstGrouping extends JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     protected javax.swing.JTextField txt1oPerc;
-    protected javax.swing.JTextField txt1oValue;
     protected javax.swing.JTextField txt2oPerc;
-    protected javax.swing.JTextField txt2oValue;
     protected javax.swing.JTextField txt3oPerc;
-    protected javax.swing.JTextField txt3oValue;
     protected javax.swing.JTextField txtAddOnChips;
     protected javax.swing.JTextField txtAddOnValue;
     protected javax.swing.JTextField txtBuyInChips;
@@ -528,6 +498,7 @@ public class FirstGrouping extends JPanel {
     protected javax.swing.JTextField txtReBuyChips;
     protected javax.swing.JTextField txtReBuyValue;
     private javax.swing.JTextField txtTournamentName;
+    protected javax.swing.JTextField txtValorInicial;
     // End of variables declaration//GEN-END:variables
 
     private void checkFocus() {

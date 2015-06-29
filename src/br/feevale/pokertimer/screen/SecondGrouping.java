@@ -108,6 +108,7 @@ public class SecondGrouping extends JPanel {
             }
         });
         tblBlinds.setColumnSelectionAllowed(true);
+        tblBlinds.setRowHeight(25);
         tblBlinds.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblBlinds);
         tblBlinds.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

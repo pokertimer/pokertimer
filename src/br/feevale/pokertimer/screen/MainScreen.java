@@ -51,7 +51,7 @@ public class MainScreen extends JFrame {
         tabsPane = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("PokerTimer v1.2");
+        setTitle("PokerTimer v1.3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -1,6 +1,7 @@
 package br.feevale.pokertimer.screen;
 
 import java.util.List;
+import java.util.Locale;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
@@ -11,6 +12,7 @@ public class ThirdGrouping extends JPanel {
 
     private boolean started = false;
     private boolean paused = false;
+    private boolean bk = false;
     private int time = 0;
     private int currentLevel = 0;
     private int players = 0;
@@ -18,6 +20,7 @@ public class ThirdGrouping extends JPanel {
     private int rebuys = 0;
     private int addons = 0;
     private int levels = 0;
+    private int chips = 0;
 
     public static ThirdGrouping getInstance()
       { return (instance); }
@@ -76,6 +79,7 @@ public class ThirdGrouping extends JPanel {
         btnPreviousLevel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnPreviousLevel.setText("<");
         btnPreviousLevel.setBorderPainted(false);
+        btnPreviousLevel.setEnabled(false);
         btnPreviousLevel.setFocusPainted(false);
         btnPreviousLevel.setFocusable(false);
         btnPreviousLevel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -88,6 +92,7 @@ public class ThirdGrouping extends JPanel {
         btnNextLevel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnNextLevel.setText(">");
         btnNextLevel.setBorderPainted(false);
+        btnNextLevel.setEnabled(false);
         btnNextLevel.setFocusPainted(false);
         btnNextLevel.setFocusable(false);
         btnNextLevel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -382,14 +387,31 @@ public class ThirdGrouping extends JPanel {
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
         btnStart.setEnabled(true);
         btnStop.setEnabled(false);
-        
+        btnPreviousLevel.setEnabled(false);
+        btnNextLevel.setEnabled(false);
+        btnPause.setEnabled(false);
+        btnPause.setText("Pausar");
+
+        btnPlusMinute.setEnabled(false);
+        btnMinusMinute.setEnabled(false);
+        btnPlusPlayer.setEnabled(false);
+        btnMinusPlayer.setEnabled(false);
+        btnPlusRebuy.setEnabled(false);
+        btnMinusRebuy.setEnabled(false);
+        btnPlusAddon.setEnabled(false);
+        btnMinusAddon.setEnabled(false);
+
         JTabbedPane tabbedPane = MainScreen.getInstance().getTabbedPane();
 
-        tabbedPane.setEnabledAt(0, true);
-        tabbedPane.setEnabledAt(1, true);
+        tabbedPane.setEnabledAt(0, false);
+        tabbedPane.setEnabledAt(1, false);
+        tabbedPane.setEnabledAt(2, false);
         tabbedPane.setEnabledAt(3, true);
 
         started = false;
+        paused = false;
+
+        MainScreen.getInstance().getTabbedPane().setSelectedIndex(3);
     }//GEN-LAST:event_btnStopActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
@@ -399,8 +421,6 @@ public class ThirdGrouping extends JPanel {
         
         btnStart.setEnabled(false);
         btnStop.setEnabled(true);
-        btnPreviousLevel.setEnabled(true);
-        btnNextLevel.setEnabled(true);
 
         btnPause.setEnabled(true);
         btnPlusMinute.setEnabled(true);
@@ -423,14 +443,16 @@ public class ThirdGrouping extends JPanel {
         this.time = ((Integer) blindsData.get(0)[4]) * 60;
         this.players = ((JNumericTextField) FirstGrouping.getInstance().txtPlayers).getInt();
         this.playersTotal = ((JNumericTextField) FirstGrouping.getInstance().txtPlayers).getInt();
+        this.total = ((JNumericTextField) FirstGrouping.getInstance().txtValorInicial).getInt();
         this.rebuys = 0;
         this.addons = 0;
+        this.chips = this.players * ((JNumericTextField) FirstGrouping.getInstance().txtBuyInChips).getInt();
 
         paused = false;
         started = true;
 
         Runnable clock = () -> {
-            boolean bk = false;
+            bk = false;
 
             while (started)
             {
@@ -500,47 +522,53 @@ public class ThirdGrouping extends JPanel {
     private void btnMinusPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusPlayerActionPerformed
         if (this.players == 1)
           { return; }
-        
+
         this.players--;
         this.updateData();
     }//GEN-LAST:event_btnMinusPlayerActionPerformed
 
     private void btnPlusPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusPlayerActionPerformed
-        if (this.playersTotal == 10)
-          { return; }
-
         this.players++;
         this.playersTotal++;
-        this.updateData(); 
+        this.chips += ((JNumericTextField) FirstGrouping.getInstance().txtBuyInChips).getInt();
+        this.updateData();
     }//GEN-LAST:event_btnPlusPlayerActionPerformed
 
     private void btnMinusRebuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusRebuyActionPerformed
+        this.chips -= ((JNumericTextField) FirstGrouping.getInstance().txtReBuyChips).getInt();
         this.rebuys--;
         this.updateData();
     }//GEN-LAST:event_btnMinusRebuyActionPerformed
 
     private void btnPlusRebuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusRebuyActionPerformed
+        this.chips += ((JNumericTextField) FirstGrouping.getInstance().txtReBuyChips).getInt();
         this.rebuys++;
         this.updateData();
     }//GEN-LAST:event_btnPlusRebuyActionPerformed
 
     private void btnMinusAddonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusAddonActionPerformed
+        this.chips -= ((JNumericTextField) FirstGrouping.getInstance().txtAddOnChips).getInt();
         this.addons--;
         this.updateData();
     }//GEN-LAST:event_btnMinusAddonActionPerformed
 
     private void btnPlusAddonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusAddonActionPerformed
+        this.chips += ((JNumericTextField) FirstGrouping.getInstance().txtAddOnChips).getInt();
         this.addons++;
         this.updateData();
     }//GEN-LAST:event_btnPlusAddonActionPerformed
 
     private void btnNextLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextLevelActionPerformed
+        bk = false;
+
         this.currentLevel++;
         time = ((Integer) SecondGrouping.getInstance().getBlindsData().get(currentLevel)[4]) * 60;
         this.updateData();
     }//GEN-LAST:event_btnNextLevelActionPerformed
 
     private void btnPreviousLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousLevelActionPerformed
+        bk = false;
+
         this.currentLevel--;
         time = ((Integer) SecondGrouping.getInstance().getBlindsData().get(currentLevel)[4]) * 60;
         this.updateData();
@@ -579,11 +607,15 @@ public class ThirdGrouping extends JPanel {
     {
      List< Object[] > blindsData = SecondGrouping.getInstance().getBlindsData();
 
-     if (currentLevel == 0)
+     if (currentLevel == 0 || !started || paused)
        { btnPreviousLevel.setEnabled(false); }
+     else
+       { btnPreviousLevel.setEnabled(true); }  
 
-     if (currentLevel == levels - 1)
+     if (currentLevel == levels - 1 || !started || paused)
        { btnNextLevel.setEnabled(false); }
+     else
+       { btnNextLevel.setEnabled(true); }  
      
      Object[] current = blindsData.get(currentLevel);
      Object[] next = currentLevel < levels - 1 ? blindsData.get(currentLevel + 1) : null;
@@ -593,8 +625,17 @@ public class ThirdGrouping extends JPanel {
 
      this.timerLabel.setText((minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
 
-     this.lblBlindsInfo.setText("Small-blind: " + current[1] + " / Big-blind: " + current[2]);
-     this.lblAnteInfo.setText("Ante: " + current[3]);
+     if (!bk)
+       {
+        this.lblBlindsInfo.setText("Small-blind: " + current[1] + " / Big-blind: " + current[2] + " / Fichas: " + this.chips + " - Média: " + (this.players > 0 ? this.chips / this.players : 0));
+        this.lblAnteInfo.setText("Ante: " + current[3]);
+       }
+     else
+       {
+        this.lblBlindsInfo.setText("Break");
+        this.lblAnteInfo.setText("");
+       }
+
      this.lblPlayersInfo.setText(this.players + "/" + this.playersTotal);
 
      if (next != null)
@@ -604,18 +645,18 @@ public class ThirdGrouping extends JPanel {
        }
      else
        {
-        this.lblNextBlindsInfo.setText("");
+        this.lblNextBlindsInfo.setText("Último Level");
         this.lblNextAnteInfo.setText("");
        }
 
      total = (this.playersTotal * ((JNumericTextField) FirstGrouping.getInstance().txtBuyInValue).getInt()) + (this.rebuys * ((JNumericTextField) FirstGrouping.getInstance().txtReBuyValue).getInt()) + (this.addons * ((JNumericTextField) FirstGrouping.getInstance().txtAddOnValue).getInt());
      
-     this.lblTotalValueInfo.setText("R$ " + total);
+     this.lblTotalValueInfo.setText("R$ " + String.format(Locale.FRANCE, "%.2f", total));
 
-     FourthGrouping.getInstance().lblTotal.setText("R$ " + total);
-     FourthGrouping.getInstance().lblFirstPlace.setText("R$ " + (total * ((JNumericTextField) FirstGrouping.getInstance().txt1oPerc).getInt()) / 100);
-     FourthGrouping.getInstance().lblSecondPlace.setText("R$ " + (total * ((JNumericTextField) FirstGrouping.getInstance().txt2oPerc).getInt()) / 100);
-     FourthGrouping.getInstance().lblThirdPlace.setText("R$ " + (total * ((JNumericTextField) FirstGrouping.getInstance().txt3oPerc).getInt()) / 100);
+     FourthGrouping.getInstance().lblTotal.setText("R$ " + String.format(Locale.FRANCE, "%.2f", total));
+     FourthGrouping.getInstance().lblFirstPlace.setText("R$ " + String.format(Locale.FRANCE, "%.2f", (total * ((JNumericTextField) FirstGrouping.getInstance().txt1oPerc).getInt()) / 100));
+     FourthGrouping.getInstance().lblSecondPlace.setText("R$ " + String.format(Locale.FRANCE, "%.2f", (total * ((JNumericTextField) FirstGrouping.getInstance().txt2oPerc).getInt()) / 100));
+     FourthGrouping.getInstance().lblThirdPlace.setText("R$ " + String.format(Locale.FRANCE, "%.2f", (total * ((JNumericTextField) FirstGrouping.getInstance().txt3oPerc).getInt()) / 100));
 
      return;
     }
